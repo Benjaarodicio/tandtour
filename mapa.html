@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUISING</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/cssmapa.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+
+<body>
+    <div class="container-fluid"> <!-- Utilizamos container-fluid para que abarque toda la pantalla -->
+        <div class="row custom-row">
+            <div class="div1 col-lg-4 d-flex justify-content-center align-items-center">
+                <img src="imagenes/mundoprueb4.png" class="logotam" alt="logo">
+            </div>
+        
+            <div class="div2 col-lg-4  text-center">
+                <h1 class="nomb">GUISING</h1>
+            </div>
+        
+            <div class="div3 col-lg-4 ">
+                <div class="social-buttons text-right">
+                    <a href="https://www.instagram.com/" target="_blank" class="btn btn-light">
+                        <img src="imagenes/intagram.jpg" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" class="btn btn-light">
+                        <img src="imagenes/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="btn btn-light">
+                        <img src="imagenes/twitter.png" alt="Twitter">
+                    </a>
+                </div>
+        
+                <!-- Nuevo div para el botón -->
+                <div id="scrollBtnup" class="buttonup">
+                    <button class="btn btn-round"></button>
+                </div>
+
+                <div  class="buttondown">
+                    <button  class="btn btn-round-down"></button>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="row">
+
+
+            
+
+        </div>
+            <div class="row">
+
+            <div class="col-lg-12">
+                <!-- Utilizamos col-lg-12 para que el mapa abarque toda la pantalla en dispositivos grandes -->
+                <div id="map"></div>
+                
+
+                
+                <button class="button btn btn-primary btn-lg btn-block mt-3 fixed-button" onclick="markRoute()">Marcar
+                    Ruta</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="js/jsmapa.js"></script>
+</body>
+
+</html>

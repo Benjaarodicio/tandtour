@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
+
+:root {
+  --gradient: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.25em;
+}
+
+.clear {
+  clear: both;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url('https://www.elcronista.ar/wp-content/uploads/2023/06/banderaaa.jpeg');
+  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header{
+  background-color: rgba(255, 255, 255, 0.99);
+  color: black;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  z-index: 1000;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.logo {
+    position: absolute;
+    top: 12px; /* Ajusta el espacio desde la parte superior */
+    left: 12px; /* Ajusta el espacio desde la izquierda */
+    margin: 0; 
+    display: flex;
+    justify-content: flex-start; /* Alinea el logo a la izquierda */
+    align-items: center;
+    z-index: 2000; /* Asegúrate de que esté por encima de otros elementos */
+}
+.logo img {
+    height: 50px;
+    }
+
+
+.nav-buttons {
+    display: flex;
+    gap: 3rem;
+}
+
+
+.nav-buttons a {
+    color: rgb(3, 0, 0);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; 
+    transition: background-color 0.3s;
+}
+.nav-buttons a.ajustes{
+    margin-right: 0rem;
+}
+.nav-buttons a.ajustes i {
+    color: black;
+}
+
+.nav-buttons a:hover {
+    background-color: rgba(0, 255, 0, 0.6);
+}
+
+.nav-buttons a.active {
+    background-color: rgba(0, 255, 0, 0.6); 
+    color: black;
+}
+
+.text-overlay {
+    position: fixed;
+    position: absolute;
+    right: 10rem;
+    bottom: 60%; /* Cambiar el valor para ajustar la posición vertical */
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.99);
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-buttons a i {
+    margin-right: 0.5rem; /* Ajusta el espacio entre el icono y el texto */
+    color: #ffffff; /* Cambia el color del icono si es necesario */
+}
+
+.container {
+  border-radius: 25px;
+  box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
+  background-color: #222831;
+  color: #ffffff;
+  height: 400px;
+  z-index: 1;
+
+}
+
+.weather-side {
+  position: relative;
+  height: 100%;
+  border-radius: 25px;
+  background-image: url("https://img.freepik.com/free-photo/sunset-beach-sea-wave_1150-11145.jpg");
+  width: 300px;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+  transition: transform 300ms ease;
+  transform: translateZ(0) scale(1.02) perspective(1000px);
+  float: left;
+}
+
+.weather-side:hover {
+  transform: scale(1.1) perspective(1500px) rotateY(10deg);
+}
+
+.weather-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: var(--gradient);
+  border-radius: 25px;
+  opacity: 0.4;
+}
+
+.date-container {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.date-dayname {
+  margin: 0;
+}
+
+.date-day {
+  display: block;
+}
+
+.location {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.location-icon {
+  display: inline-block;
+  height: 0.8em;
+  width: auto;
+  margin-right: 5px;
+}
+
+.weather-container {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
+
+.weather-icon img {
+  filter: drop-shadow(0 0 2px #fff);
+  width: 100%;
+}
+
+.weather-temp {
+  margin: 0;
+  font-weight: 700;
+  font-size: 4em;
+}
+
+.weather-desc {
+  margin: 0;
+  z-index: 2000;
+}
+
+.info-side {
+  position: relative;
+  float: left;
+  height: 100%;
+  padding-top: 25px;
+}
+
+.today-info {
+  padding: 15px;
+  margin: 0 25px 25px 25px;
+  box-shadow: 0 0 50px -5px rgba(0, 0, 0);
+  border-radius: 10px;
+}
+
+.today-info>div:not(:last-child) {
+  margin: 0 0 10px 0;
+}
+
+.today-info>div .title {
+  float: left;
+  font-weight: 700;
+}
+
+.today-info>div .value {
+  float: right;
+}
+
+.week-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 35px;
+  box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.week-list>li {
+  float: left;
+  padding: 15px;
+  cursor: pointer;
+  transition: 200ms ease;
+  border-radius: 10px;
+}
+
+.week-list>li:hover {
+  transform: scale(1.1);
+  background: #fff;
+  color: #222831;
+  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)
+}
+
+.week-list>li.active {
+  background: #fff;
+  color: #222831;
+  border-radius: 10px;
+}
+
+.week-list>li .day-name {
+  display: block;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+
+.week-list>li .day-icon {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: auto;
+  margin: 0 auto;
+  font-size: 35px;
+}
+
+.week-list>li .day-icon img {
+  filter: drop-shadow(0 0 2px white);
+}
+
+.week-list>li .day-temp {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.location-container {
+  padding: 25px 35px;
+}
+
+.location-input {
+  position: relative;
+  width: 100%;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  background-image: var(--gradient);
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+  transition: transform 200ms ease;
+}
+
+.location-input:hover {
+  transform: scale(0.95);
+}
+/* Estilos para pantallas pequeñas (por ejemplo, móviles) */
+@media (max-width: 540px) {
+  body {
+    height: auto;
+    background-size: auto; /* Ajusta el tamaño del fondo en pantallas pequeñas */
+  }
+
+  header {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.199); /* Ajustar la opacidad si es necesario */
+    z-index: 1000;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+    justify-content: space-evenly; /* Distribuye los íconos equitativamente */
+    background-color: rgba(216, 216, 216, 0.459);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 0; /* Ajusta el padding según sea necesario */
+    border-top-left-radius: 50px;
+    border-top-right-radius:50px ;
+}
+
+.nav-buttons a {
+    width: 30px; /* Tamaño del ícono */
+    height: 30px; /* Tamaño del ícono */
+    padding: 0;
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: transparent;
+}
+
+.nav-buttons a i {
+    margin-right: 0; /* Elimina el espacio entre el ícono y el texto */
+}
+
+.nav-buttons a span {
+    display: none; /* Oculta el texto */
+}
+.container {
+   margin-top: 110px;
+    width: 90%;
+    height: 900px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.text-overlay {
+    bottom: 80%;
+    font-size: 2rem;
+    
+}
+.logo {
+    position: absolute; /* Coloca el logo de forma absoluta */
+    top: 0; /* Fija el logo en la parte superior */
+    right: 25px; /* Fija el logo a la derecha */
+    margin: 0px; /* Espaciado alrededor del logo */
+    padding: 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 2000; /* Asegúrate de que esté por encima de otros elementos */
+}
+.logo img{
+    
+    border-radius: 50px;
+}
+
+  .weather-side, .info-side {
+    width: 100%;
+    float: none;
+  }
+
+  .weather-side {
+    height: auto;
+    margin-bottom: 200px;
+  }
+
+  .today-info {
+    margin-top: 200px;
+  }
+
+  .week-list {
+    margin: 10px;
+  }
+
+  .week-list>li {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .week-list>li .day-name,
+  .week-list>li .day-temp {
+    font-size: 12px;
+  }
+
+  .location-input {
+    width: 100%;
+  }
+  .date-container{
+    margin-top: 300px;
+  }
+  .weather-desc{
+    margin-top: -900px;
+    z-index: 5000;
+    
+
+  }
+  .weather-container {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+  }
+}
+

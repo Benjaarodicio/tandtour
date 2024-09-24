@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Lugares</title>
+    <link rel="stylesheet" href="css/cssindex.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="text-center mb-4">
+        Catálogo de Lugares
+    </header>
+    <main>
+        <div class="form-group">
+            <label for="days">¿Cuántos días te vas a quedar?</label>
+            <input type="number" id="days" name="days" min="1" required class="form-control">
+        </div>
+
+        <div class="places" id="places">
+            <!-- Lugares se mostrarán aquí -->
+        </div>
+        
+        <div class="text-center">
+            <button class="button btn btn-primary btn-block" onclick="generateCatalog()">Generar Catálogo</button>
+        </div>
+    </main>
+
+    <script src="js/jsindex.js"></script>
+</body>
+</html>

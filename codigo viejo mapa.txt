@@ -1,0 +1,192 @@
+codigo viejo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <title>GUISING</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        #map {
+            height: 400px;
+            width: 2000px;
+        }
+        .button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            margin: 10px;
+        }
+    
+    </style>
+    <div class="contenedor">
+        <div class="row">
+            <div   class="div1 col-4">
+                <img src="logo2.jpg" class="logotam" alt="logo">
+            </div>
+            <div class=" div2 col-4">
+                <h1 class="nomb"> GUISING </h1>
+            </div>
+            <div class="div3 col-4">
+                <div class="social-buttons">
+                
+                    <a href="https://www.instagram.com/" target="_blank" class="btn btn-light">
+                        <img src="intagram.jpg" alt="Instagram">
+                    </a>
+                
+                    <a href="https://www.facebook.com/" target="_blank" class="btn btn-light">
+                        <img src="facebook.png" alt="Facebook">
+                    </a>
+        
+                    <a href="https://twitter.com/" target="_blank" class="btn btn-light">
+                        <img src="twitter.png" alt="Twitter">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class=" centro col-12">
+                <div id="map"></div>
+                <script>
+                    const map = L.map('map').setView([0, 0], 2); 
+            
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(map)
+                    
+
+		map.on('click', function (e) {
+			console.log(e)
+			var newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+			L.Routing.control({
+				waypoints: [
+					L.latLng(-37.3295, -59.1349),
+					L.latLng(e.latlng.lat, e.latlng.lng)
+				]
+			}).on('routesfound', function (e) {
+				var routes = e.routes;
+				console.log(routes);
+
+				e.routes[0].coordinates.forEach(function (coord, index) {
+					setTimeout(function () {
+						marker.setLatLng([coord.lat, coord.lng]);
+					}, 100 * index)
+				})
+
+			}).addTo(map);
+		});
+            
+                    // Almacenar el marcador y la ruta actuales para poder eliminarlos más tarde
+                    let currentMarker = null;
+                    let currentRoute = null;
+
+            
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            (position) => {
+                                const lat = position.coords.latitude;
+                                const lng = position.coords.longitude;
+                                map.setView([lat, lng], 13); // Centra el mapa
+            
+                                L.marker([lat, lng]).addTo(map)
+                                    .bindPopup("Estás aquí")
+                                    .openPopup();
+                        
+                            },
+                            (error) => {
+                                console.error("Error al obtener la ubicación:", error);
+                            }
+                        );
+                    }
+            
+                    const selectedPlace = JSON.parse(localStorage.getItem('selectedPlace'));
+            
+                    if (selectedPlace) {
+                        const { lat, lng, name } = selectedPlace;
+                        
+            
+                        if (currentMarker) {
+                            map.removeLayer(currentMarker); // Elimina cualquier marcador anterior
+                        }
+            
+                        currentMarker = L.marker([lat, lng])
+                            .addTo(map)
+                            .bindPopup(`Ubicación seleccionada: ${name}`)
+                            .openPopup();
+            
+                        map.setView([lat, lng], 13);
+                    } else {
+                        console.error("No hay lugar seleccionado en localStorage.");
+                    }
+            
+                    function markRoute() {
+                        if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(
+                                (position) => {
+                                    const startLat = position.coords.latitude;
+                                    const startLng = position.coords.longitude;
+            
+                                    // Elimina cualquier ruta anterior antes de crear una nueva
+                                    if (currentRoute) {
+                                        map.removeLayer(currentRoute);
+                                    }
+            
+                                    const destination = JSON.parse(localStorage.getItem('selectedPlace'));
+            
+                                    if (destination) {
+                                        const routingUrl = `https://router.project-osrm.org/route/v1/driving/${startLng},${startLat};${destination.lng},${destination.lat}?overview=full&geometries=geojson`;
+            
+                                        fetch(routingUrl)
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                if (data.routes && data.routes.length > 0) {
+                                                    const route = data.routes[0];
+            
+                                                    currentRoute = L.geoJSON(route.geometry).addTo(map);
+            
+                                                    if (currentMarker) {
+                                                        map.removeLayer(currentMarker); // Eliminar marcador anterior
+                                                    }
+            
+                                                    currentMarker = L.marker([destination.lat, destination.lng])
+                                                        .addTo(map)
+                                                        .bindPopup(`Destino: ${destination.name}`)
+                                                        .openPopup();
+                                                }
+                                            })
+                                            .catch(error => console.error("Error al obtener la ruta:", error));
+                                    }
+                                },
+                                (error) => {
+                                    console.error("Error al obtener la ubicación:", error);
+                                }
+                            );
+                        }
+                    }
+                    
+                </script>
+            </div>
+        </div>
+        <div class="row">
+            <div class="div4 col-12">
+                <button class="button" onclick="markRoute()">Marcar Ruta</button>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+(fondo pagina inicio:https://www.elcronista.ar/wp-content/uploads/2023/06/banderaaa.jpeg . o . https://i0.wp.com/leerdelviaje.com/wp-content/uploads/2017/10/IMG_1447-scaled.jpg?fit=2668%2C1781&ssl=1) 

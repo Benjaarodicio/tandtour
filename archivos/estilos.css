@@ -1,0 +1,58 @@
+.div1{
+    background-color: rgb(2, 3, 41);
+}
+.div2{
+    background-color: rgb(2, 3, 41);
+}
+.div3{
+    background-color: rgb(2, 3, 41);
+}
+.centro {
+    height: 400px; 
+    background-color: rgb(0, 0, 0);
+}
+.div4{
+    background-color: rgb(255, 0, 0);
+}
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 200px; /* Ancho total de los botones */
+    margin: 50px auto; /* Espacio alrededor de los botones */
+}
+
+.social-buttons .btn {
+    width: 50px; /* Ancho de cada botón */
+    height: 50px; /* Alto de cada botón */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    color: #555;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-buttons .btn img {
+    width: 100%;
+    height: auto;
+}
+
+.social-buttons .btn:hover {
+    background-color: #f0f0f0;
+}
+.logotam{
+    width: 250px; 
+    height: 150px; 
+    
+}
+.nomb{
+    font-family: Arial, sans-serif; /* Fuente del texto */
+    font-size: 25px; /* Tamaño del texto */
+    color: #f8f8f8; /* Color del texto */
+    padding: 20px; /* Espacio alrededor del texto */
+    text-align: center; /* Alineación del texto */
+    width: 300px; /* Ancho del texto */
+    margin: 50px auto; /* Margen para centrar */
+
+}

@@ -1,0 +1,70 @@
+body {
+    background-image: url('https://www.vivotandil.com/contenido/productos/original/1458613624.jpeg');
+    background-size: cover;
+}
+
+
+h1 {
+    color: #000000;
+    font-size: 64px;
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+form {
+    border-radius: 20px;
+    padding: 30px;
+    margin: auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+label {
+
+    font-size: 28px;
+
+
+}
+
+input {
+    font-size: 27px;
+    border: none;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    width: -webkit-fill-available;
+}
+
+
+
+button {
+    background-color: #000000;
+    border: none;
+    border-radius: 100px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 15px 30px;
+    width: 100%;
+
+}
+
+#contenedor-form {
+    border: 1px solid #000;
+    background: rgba(255, 255, 255, 0.86);
+    border-radius: 20px;
+    margin: auto;
+    max-width: 400px;
+    padding: 30px;
+    text-align: center;
+}
+
+#button-iniciar {
+    background-color: deeppink;
+}
+
+.error {
+    color: red;
+}

@@ -1,0 +1,313 @@
+* {
+    box-sizing: border-box;
+
+}
+
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: url('https://www.todoprovincial.com/wp-content/uploads/2023/05/piedra-movediza.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+header{
+    background-color: rgba(255, 255, 255, 0.99);
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    z-index: 1000;
+  }
+  
+  header {
+      position: fixed;
+      top: 0;
+      left: 0;
+  }
+  .logo {
+      position: absolute;
+      top: 12px; /* Ajusta el espacio desde la parte superior */
+      left: 12px; /* Ajusta el espacio desde la izquierda */
+      margin: 0; 
+      display: flex;
+      justify-content: flex-start; /* Alinea el logo a la izquierda */
+      align-items: center;
+      z-index: 2000; /* Asegúrate de que esté por encima de otros elementos */
+  }
+  .logo img {
+      height: 50px;
+      }
+
+.nav-buttons {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-buttons a.noticias {
+    margin-right: 0rem;
+} 
+
+.nav-buttons a {
+    color: rgb(3, 0, 0);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.nav-buttons a:hover {
+    background-color: rgba(0, 255, 0, 0.6);
+}
+
+.nav-buttons a.active {
+    background-color: rgba(0, 255, 0, 0.6);
+    color: black;
+}
+
+.text-overlay {
+    position: fixed;
+    position: absolute;
+    right: 10rem;
+    bottom: 60%;
+    /* Cambiar el valor para ajustar la posición vertical */
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.99);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.nav-buttons a i {
+    margin-right: 0rem;
+    /* Ajusta el espacio entre el icono y el texto */
+    color: #ffffff;
+    /* Cambia el color del icono si es necesario */
+}
+
+.nav-buttons a.ajustes i {
+    color: black;
+}
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    padding: 15px;
+    
+}
+
+#contenedor-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid #000000;
+    background-color: rgba(0, 0, 0, 0.493);
+    border-radius: 20px;
+    margin: 50px;
+}
+.container {
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    /* Ajusta esto para tener en cuenta la altura del header */
+    box-sizing: border-box;
+}
+button {
+    background-color: #ff0000;
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+    .cerrarsesion {
+        background-color: #ff0000;
+        /* Color de fondo celeste */
+        color: #fff;
+        /* Color de texto blanco */
+        border: none;
+        /* Sin borde */
+        text-decoration: none;
+    }    
+    .foto {
+        height: 110px;
+    }  
+    .foto-perfil {
+        background-color: #ffffff00; /* Color de fondo */
+        width: 80px;               /* Ancho deseado */
+        height: 80px;              /* Alto deseado */
+        border-radius: 50%;        /* Borde redondeado */
+    }
+.nombre-usuario {
+    font-size: 25px;
+    /* Tamaño de fuente deseado para el nombre de usuario */
+    color: #ffffff;
+    /* Color de texto deseado */
+    margin-left: 150px;
+    margin-top: -50px
+}
+.boton-editar {
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 700px;
+}
+
+.boton-editar a {
+    color: white; /* Color de texto del enlace */
+    text-decoration: none; /* Sin subrayado en el enlace */
+}
+@media (max-width: 540px) {
+    header {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.199);
+    }
+
+    .nav-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        width: 100%;
+        justify-content: space-evenly;
+        background-color: rgba(216, 216, 216, 0.459);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 0.5rem 0;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+
+    .nav-buttons a {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        font-size: 1rem;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background-color: transparent;
+    }
+
+    .nav-buttons a i {
+        margin-right: 0;
+    }
+
+    .nav-buttons a span {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    .text-overlay {
+        bottom: 80%;
+        font-size: 2rem;
+    }
+
+    .logo {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        margin: 0px;
+        padding: 12px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 2000;
+    }
+
+    .logo img {
+        height: 50px;
+        border-radius: 50px;
+    }
+
+    .foto-perfil {
+        background-color: #ffffff00;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute; /* Para centrarla verticalmente */
+        top: 55px; /* Ajusta el valor para la distancia desde la parte superior */
+        left: 50%; /* Para centrar horizontalmente */
+        transform: translateX(-50%); /* Centra horizontalmente */
+    }
+
+    .nombre-usuario {
+        font-size: 25px;
+        color: #ffffff;
+        text-align: center; /* Centra el texto */
+        margin-top: 90px; /* Espacio debajo de la foto de perfil */
+    }
+    
+    .botones-accion {
+        display: flex;
+        flex-direction: row; /* Alinea los botones en una fila horizontal */
+        justify-content: center; /* Centra los botones horizontalmente en el contenedor */
+        position: fixed;
+        bottom: 0; /* Fija el contenedor en la parte inferior de la pantalla */
+        left: 0;
+        right: 0;
+        padding: 10px; /* Espacio alrededor de los botones */
+        background-color: rgba(255, 255, 255, 0.8); /* Fondo para el contenedor */
+        border-radius: 20px; /* Bordes redondeados para el contenedor */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para mayor visibilidad */
+    }
+
+    .cerrarsesion, .boton-editar {
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 500px 100px;
+        margin-top: 150px;
+        margin-left: -340px;
+    }
+
+    .boton-editar {
+       margin-right: -300px;
+    }
+    .cerrarsesion{
+        margin-left: -3000;
+    }
+
+    .cerrarsesion a, .boton-editar a {
+        color: #ffffff; /* Asegura que el texto del enlace sea blanco */
+        text-decoration: none; /* Elimina el subrayado de los enlaces */
+    }
+}
